@@ -64,13 +64,13 @@
 Выполните команды:
 
 ```bash
-cd "C:\Users\User\Desktop\Проект\Viki HSR"
+cd "Viki-HSR"
 python -m http.server 8000
 ```
 Если верхняя команда не работает то пробуйте нижнюю команду
 
 ```bash
-cd "C:\Users\User\Desktop\Проект\Viki HSR"
+cd "Viki-HSR"
 python -m http.server --bind localhost
 ```
 
