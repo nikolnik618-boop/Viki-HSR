@@ -11,58 +11,33 @@ function normalizeTeam(team) {
 }
 
 const pathIconMap = {
-  'The Hunt': 'assets/icons/path/Hunt.png',
-  Hunt: 'assets/icons/path/Hunt.png',
-  Preservation: 'assets/icons/path/Preservation.png',
-  Erudition: 'assets/icons/path/Erudition.png',
-  Harmony: 'assets/icons/path/Harmony.png',
-  Nihility: 'assets/icons/path/Nihility.png',
-  Destruction: 'assets/icons/path/Destruction.png',
-  Abundance: 'assets/icons/path/Abundance.png',
-  Remembrance: 'assets/icons/path/Remembrance.png',
-  'The Remembrance': 'assets/icons/path/Remembrance.png',
-  Memory: 'assets/icons/path/Remembrance.png',
-  Explore: 'assets/icons/path/Explore.png',
-  Elation: 'assets/icons/path/Elation.png',
-  Joy: 'assets/icons/path/Elation.png',
   Knight: 'assets/icons/path/Preservation.png',
-  Mage: 'assets/icons/path/Erudition.png',
-  Warrior: 'assets/icons/path/Destruction.png',
-  Priest: 'assets/icons/path/Abundance.png',
   Rogue: 'assets/icons/path/Hunt.png',
+  Mage: 'assets/icons/path/Erudition.png',
+  Warlock: 'assets/icons/path/Nihility.png',
+  Warrior: 'assets/icons/path/Destruction.png',
   Shaman: 'assets/icons/path/Harmony.png',
-  Warlock: 'assets/icons/path/Nihility.png'
+  Priest: 'assets/icons/path/Abundance.png',
+  Memory: 'assets/icons/path/Remembrance.png',
+  Elation: 'assets/icons/path/Elation.png'
 };
 
 const pathLocalizationMap = {
-  'The Hunt': 'Охота',
-  Hunt: 'Охота',
-  Preservation: 'Сохранение',
-  Erudition: 'Эрудиция',
-  Harmony: 'Гармония',
-  Nihility: 'Небытие',
-  Destruction: 'Разрушение',
-  Abundance: 'Изобилие',
-  Remembrance: 'Память',
-  'The Remembrance': 'Память',
-  Memory: 'Память',
-  Explore: 'Исследование',
-  Elation: 'Радость',
-  Joy: 'Радость',
   Knight: 'Сохранение',
-  Mage: 'Эрудиция',
-  Warrior: 'Разрушение',
-  Priest: 'Изобилие',
   Rogue: 'Охота',
+  Mage: 'Эрудиция',
+  Warlock: 'Небытие',
+  Warrior: 'Разрушение',
   Shaman: 'Гармония',
-  Warlock: 'Нихилитет'
+  Priest: 'Изобилие',
+  Memory: 'Память',
+  Elation: 'Радость'
 };
 
 const elementIconMap = {
   Fire: 'assets/icons/element/Fire.png',
   Ice: 'assets/icons/element/Ice.png',
   Wind: 'assets/icons/element/Wind.png',
-  Lightning: 'assets/icons/element/Thunder.png',
   Thunder: 'assets/icons/element/Thunder.png',
   Quantum: 'assets/icons/element/Quantum.png',
   Imaginary: 'assets/icons/element/Imaginary.png',
@@ -73,24 +48,24 @@ const elementLocalizationMap = {
   Fire: 'Огненный',
   Ice: 'Ледяной',
   Wind: 'Ветряной',
-  Lightning: 'Электрический',
   Thunder: 'Электрический',
   Quantum: 'Квантовый',
   Imaginary: 'Мнимый',
   Physical: 'Физический'
 };
 
+const playerCharacterDisplayName = 'Первопроходец';
 const playerCharacterNameMap = {
-  8001: 'Trailblazer',
-  8002: 'Trailblazer',
-  8003: 'Trailblazer',
-  8004: 'Trailblazer',
-  8005: 'Trailblazer',
-  8006: 'Trailblazer',
-  8007: 'Trailblazer',
-  8008: 'Trailblazer',
-  8009: 'Trailblazer',
-  8010: 'Trailblazer'
+  8001: playerCharacterDisplayName,
+  8002: playerCharacterDisplayName,
+  8003: playerCharacterDisplayName,
+  8004: playerCharacterDisplayName,
+  8005: playerCharacterDisplayName,
+  8006: playerCharacterDisplayName,
+  8007: playerCharacterDisplayName,
+  8008: playerCharacterDisplayName,
+  8009: playerCharacterDisplayName,
+  8010: playerCharacterDisplayName
 };
 
 function getStoredTeam() {
@@ -156,12 +131,17 @@ function getLocalizedElement(elementName) {
 }
 
 function getDisplayCharacterName(character) {
+  const playerCharacterName = playerCharacterNameMap[character?.id];
+  if (playerCharacterName) {
+    return playerCharacterName;
+  }
+
   const name = String(character?.localizedName || character?.name || '').trim();
   if (name && !/^\{.*\}$/i.test(name)) {
     return name;
   }
 
-  return playerCharacterNameMap[character?.id] || 'Trailblazer';
+  return 'Неизвестно';
 }
 
 function formatRarity(rarity) {
@@ -171,7 +151,8 @@ function formatRarity(rarity) {
 function formatSourceDescription(description) {
   const formatted = String(description || '')
     .replace(/\{F#([^}]*)\}\{M#([^}]*)\}/g, '$1 / $2')
-    .replace(/\{[FM]#([^}]*)\}/g, '$1');
+    .replace(/\{[FM]#([^}]*)\}/g, '$1')
+    .replace(/\{NICKNAME\}/g, playerCharacterDisplayName);
   return /#\d+\[[^\]]+\]/.test(formatted) ? '' : formatted;
 }
 
@@ -696,7 +677,7 @@ async function renderDetailPage() {
     : kind === 'lightcone'
       ? details.lightCones?.[String(item.id)]
       : details.relicSets?.[String(item.id)];
-  const title = source?.localizedName || getEntityName(kind, item);
+  const title = kind === 'character' ? getDisplayCharacterName(item) : source?.localizedName || getEntityName(kind, item);
   const canonicalName = kind === 'character' ? getDisplayCharacterName(item) : item.name;
   const translatedDescription = formatSourceDescription(kind === 'lightcone' && source?.description ? source.description : item.localizedDescription || item.description);
   const headingTitle = escapeHtml(title);
