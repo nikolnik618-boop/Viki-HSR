@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тимбилдер</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="teambuilder">
+    <div class="page-shell">
+      <div class="app-layout">
+        <aside class="sidebar" aria-label="Главная навигация">
+          <div class="brand">
+            <div class="brand-mark">ВИКИ HSR</div>
+          </div>
+          <nav class="nav-menu" aria-label="Основное меню">
+            <a class="nav-item" href="index.html"><span class="nav-dot"></span>Главная</a>
+            <a class="nav-item" href="characters.html"><span class="nav-dot"></span>Персонажи</a>
+            <a class="nav-item" href="lightcones.html"><span class="nav-dot"></span>Световые конусы</a>
+            <a class="nav-item" href="relics.html"><span class="nav-dot"></span>Реликвии</a>
+            <a class="nav-item active" href="teambuilder.html"><span class="nav-dot"></span>Тимбилдер</a>
+            <a class="nav-item" href="about.html"><span class="nav-dot"></span>О проекте</a>
+            <a class="nav-item" href="feedback.html"><span class="nav-dot"></span>Обратная связь</a>
+          </nav>
+        </aside>
+
+        <main class="main-panel">
+          <header class="page-header">
+            <h1>Тимбилдер</h1>
+            <div class="top-pills"><span class="pill">Перетаскивание</span><span class="pill" id="team-count-pill">0/4</span></div>
+          </header>
+
+          <section class="section team-builder" aria-label="Конструктор команды">
+            <div class="team-panel">
+              <div class="team-toolbar">
+                <h3>Доступные персонажи</h3>
+                <div class="team-status" id="team-summary">Команда: 0/4</div>
+              </div>
+
+              <div class="team-search-wrap">
+                <label for="team-search">Поиск персонажа</label>
+                <input id="team-search" type="search" placeholder="Введите имя героя..." aria-label="Поиск персонажей для команды" />
+              </div>
+
+              <div id="team-available" class="team-list" aria-live="polite"></div>
+            </div>
+
+            <div class="slot-panel">
+              <h3>Командные слоты</h3>
+              <div id="team-slots" class="slot-list" aria-live="polite"></div>
+              <div class="slot-actions">
+                <button type="button" class="primary-btn" id="clear-team">Очистить команду</button>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

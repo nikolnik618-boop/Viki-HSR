@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Обратная связь</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="feedback">
+    <div class="page-shell">
+      <div class="app-layout">
+        <aside class="sidebar" aria-label="Главная навигация">
+          <div class="brand">
+            <div class="brand-mark">ВИКИ HSR</div>
+          </div>
+          <nav class="nav-menu" aria-label="Основное меню">
+            <a class="nav-item" href="index.html"><span class="nav-dot"></span>Главная</a>
+            <a class="nav-item" href="characters.html"><span class="nav-dot"></span>Персонажи</a>
+            <a class="nav-item" href="lightcones.html"><span class="nav-dot"></span>Световые конусы</a>
+            <a class="nav-item" href="relics.html"><span class="nav-dot"></span>Реликвии</a>
+            <a class="nav-item" href="teambuilder.html"><span class="nav-dot"></span>Тимбилдер</a>
+            <a class="nav-item" href="about.html"><span class="nav-dot"></span>О проекте</a>
+            <a class="nav-item active" href="feedback.html"><span class="nav-dot"></span>Обратная связь</a>
+          </nav>
+        </aside>
+
+        <main class="main-panel">
+          <header class="page-header">
+            <h1>Обратная связь</h1>
+            <div class="top-pills"><span class="pill">Обратная</span><span class="pill">связь</span></div>
+          </header>
+
+          <section class="section form-layout">
+            <form id="feedback-form" class="form-panel" novalidate>
+              <div class="form-field">
+                <label for="name">Имя</label>
+                <input id="name" name="name" type="text" placeholder="Введите имя" data-field="name" />
+                <div class="validation-message" data-error-for="name"></div>
+              </div>
+
+              <div class="form-field">
+                <label for="email">Электронная почта</label>
+                <input id="email" name="email" type="email" placeholder="example@mail.com" data-field="email" />
+                <div class="validation-message" data-error-for="email"></div>
+              </div>
+
+              <div class="form-field">
+                <label for="message">Сообщение</label>
+                <textarea id="message" name="message" placeholder="Напишите ваш отзыв..." data-field="message"></textarea>
+                <div class="validation-message" data-error-for="message"></div>
+              </div>
+
+              <div class="checkbox-row">
+                <input id="consent" name="consent" type="checkbox" data-field="consent" />
+                <label for="consent">Согласен на обработку данных</label>
+              </div>
+              <div class="validation-message" data-error-for="consent"></div>
+
+              <div class="hero-actions">
+                <button type="submit" class="btn btn-primary">Отправить</button>
+              </div>
+
+              <div id="form-success" class="success-message" role="status" aria-live="polite">
+                Форма успешно отправлена. Спасибо за обратную связь!
+              </div>
+            </form>
+
+            <div class="form-panel">
+              <h3>Оценка проекта</h3>
+              <p>Если у вас есть предложения по улучшению проекта, напишите нам. Мы учитываем фидбек по структуре данных, UX и образовательной части.</p>
+              <ul>
+                <li>Понятный интерфейс</li>
+                <li>Адаптивный дизайн</li>
+                <li>Учебная направленность</li>
+                <li>Проверка доступности</li>
+              </ul>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Реликвии</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="relics">
+    <div class="page-shell">
+      <div class="app-layout">
+        <aside class="sidebar" aria-label="Главная навигация">
+          <div class="brand">
+            <div class="brand-mark">ВИКИ HSR</div>
+          </div>
+          <nav class="nav-menu" aria-label="Основное меню">
+            <a class="nav-item" href="index.html"><span class="nav-dot"></span>Главная</a>
+            <a class="nav-item" href="characters.html"><span class="nav-dot"></span>Персонажи</a>
+            <a class="nav-item" href="lightcones.html"><span class="nav-dot"></span>Световые конусы</a>
+            <a class="nav-item active" href="relics.html"><span class="nav-dot"></span>Реликвии</a>
+            <a class="nav-item" href="teambuilder.html"><span class="nav-dot"></span>Тимбилдер</a>
+            <a class="nav-item" href="about.html"><span class="nav-dot"></span>О проекте</a>
+            <a class="nav-item" href="feedback.html"><span class="nav-dot"></span>Обратная связь</a>
+          </nav>
+        </aside>
+
+        <main class="main-panel">
+          <header class="page-header">
+            <h1>Реликвии</h1>
+            <div class="top-pills"><span class="pill">Каталог</span><span class="pill">Наборы</span></div>
+          </header>
+
+          <section class="section">
+            <div class="filter-panel" id="relic-filters">
+              <div class="filter-field">
+                <label for="relic-search">Поиск</label>
+                <input id="relic-search" name="search" type="search" placeholder="Введите название набора..." aria-label="Поиск по наборам реликвий" />
+              </div>
+
+              <button class="reset-btn" type="button" id="reset-relics">Сброс</button>
+            </div>
+
+            <p class="result-count" id="relic-result-count" aria-live="polite"></p>
+            <div id="relic-list" class="card-grid" aria-live="polite"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Путеводитель по Honkai: Star Rail" />
+    <title>Путеводитель по звёздному экспрессу</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="home">
+    <div class="page-shell">
+      <div class="app-layout">
+        <aside class="sidebar" aria-label="Главная навигация">
+          <div class="brand">
+            <div class="brand-mark">ВИКИ HSR</div>
+          </div>
+          <nav class="nav-menu" aria-label="Основное меню">
+            <a class="nav-item active" href="index.html"><span class="nav-dot"></span>Главная</a>
+            <a class="nav-item" href="characters.html"><span class="nav-dot"></span>Персонажи</a>
+            <a class="nav-item" href="lightcones.html"><span class="nav-dot"></span>Световые конусы</a>
+            <a class="nav-item" href="relics.html"><span class="nav-dot"></span>Реликвии</a>
+            <a class="nav-item" href="teambuilder.html"><span class="nav-dot"></span>Тимбилдер</a>
+            <a class="nav-item" href="about.html"><span class="nav-dot"></span>О проекте</a>
+            <a class="nav-item" href="feedback.html"><span class="nav-dot"></span>Обратная связь</a>
+          </nav>
+        </aside>
+
+        <main class="main-panel">
+          <header class="page-header">
+            <h1>Путеводитель по звёздному экспрессу</h1>
+            <div class="top-pills" aria-label="Метки проекта">
+              <span class="pill">Вики</span>
+              <span class="pill">Обучение</span>
+              <span class="pill">Данные</span>
+            </div>
+          </header>
+
+          <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy">
+              <h1 id="hero-title">Учебная база по героям, конусам и реликвиям.</h1>
+              <p>
+                Этот проект помогает быстро ориентироваться в героях, путях, элементам и наборах
+                артефактов в Honkai: Star Rail. Здесь собраны полезные карточки, фильтры и инструменты
+                для учебного разбора и планирования команды.
+              </p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="characters.html">Персонажи</a>
+                <a class="btn btn-secondary" href="lightcones.html">Световые конусы</a>
+                <a class="btn btn-ghost" href="relics.html">Реликвии</a>
+              </div>
+            </div>
+            <div class="hero-card" aria-label="Иллюстрация персонажа">
+              <img src="assets/images/characters/1005.png" alt="Kafka" />
+            </div>
+          </section>
+
+          <section class="section" aria-labelledby="dashboard-title">
+            <div class="section-heading"><h2 id="dashboard-title">База данных</h2><a class="link-more" href="favorites.html">Избранное</a></div>
+            <div id="dashboard-stats" class="dashboard-stats" aria-live="polite"></div>
+          </section>
+
+          <section class="section" id="home-favorites" aria-labelledby="home-favorites-title" hidden>
+            <div class="section-heading"><h2 id="home-favorites-title">Ваше избранное</h2><a class="link-more" href="favorites.html">Все избранное</a></div>
+            <div id="home-favorites-list" class="feature-grid"></div>
+          </section>
+
+          <section class="section" aria-labelledby="quick-access-title">
+            <div class="section-heading"><h2 id="quick-access-title">Быстрый доступ</h2></div>
+            <div class="quick-access">
+              <a href="characters.html"><strong>Каталог персонажей</strong><span>Пути, элементы и редкость</span></a>
+              <a href="lightcones.html"><strong>Световые конусы</strong><span>Описания и пути</span></a>
+              <a href="relics.html"><strong>Наборы реликвий</strong><span>Бонусы и предметы комплекта</span></a>
+              <a href="teambuilder.html"><strong>Тимбилдер</strong><span>Соберите отряд из четырёх персонажей</span></a>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-heading">
+              <h2>Избранные персонажи</h2>
+              <a class="link-more" href="characters.html">Смотреть всё</a>
+            </div>
+            <div id="featured-characters" class="feature-grid" aria-live="polite"></div>
+          </section>
+
+          <section class="section">
+            <div class="section-heading">
+              <h2>Избранные конусы</h2>
+              <a class="link-more" href="lightcones.html">Смотреть всё</a>
+            </div>
+            <div id="featured-lightcones" class="feature-grid" aria-live="polite"></div>
+          </section>
+
+          <section class="section">
+            <div class="section-heading">
+              <h2>Избранные наборы реликвий</h2>
+              <a class="link-more" href="relics.html">Смотреть всё</a>
+            </div>
+            <div id="featured-relics" class="feature-grid" aria-live="polite"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

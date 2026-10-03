@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Световые конусы</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="lightcones">
+    <div class="page-shell">
+      <div class="app-layout">
+        <aside class="sidebar" aria-label="Главная навигация">
+          <div class="brand">
+            <div class="brand-mark">ВИКИ HSR</div>
+          </div>
+          <nav class="nav-menu" aria-label="Основное меню">
+            <a class="nav-item" href="index.html"><span class="nav-dot"></span>Главная</a>
+            <a class="nav-item" href="characters.html"><span class="nav-dot"></span>Персонажи</a>
+            <a class="nav-item active" href="lightcones.html"><span class="nav-dot"></span>Световые конусы</a>
+            <a class="nav-item" href="relics.html"><span class="nav-dot"></span>Реликвии</a>
+            <a class="nav-item" href="teambuilder.html"><span class="nav-dot"></span>Тимбилдер</a>
+            <a class="nav-item" href="about.html"><span class="nav-dot"></span>О проекте</a>
+            <a class="nav-item" href="feedback.html"><span class="nav-dot"></span>Обратная связь</a>
+          </nav>
+        </aside>
+
+        <main class="main-panel">
+          <header class="page-header">
+            <h1>Световые конусы</h1>
+            <div class="top-pills"><span class="pill">Каталог</span><span class="pill">Фильтры</span></div>
+          </header>
+
+          <section class="section">
+            <div class="filter-panel" id="lightcone-filters">
+              <div class="filter-field">
+                <label for="lightcone-search">Поиск</label>
+                <input id="lightcone-search" name="search" type="search" placeholder="Введите имя конуса..." aria-label="Поиск по конусам" />
+              </div>
+
+              <div class="filter-field">
+                <label for="lightcone-rarity">Редкость</label>
+                <select id="lightcone-rarity" name="rarity">
+                  <option value="all">Все</option>
+                  <option value="3">3★</option>
+                  <option value="4">4★</option>
+                  <option value="5">5★</option>
+                </select>
+              </div>
+
+              <div class="filter-field">
+                <label for="lightcone-path">Путь</label>
+                <select id="lightcone-path" name="path">
+                  <option value="all">Все</option>
+                </select>
+              </div>
+
+              <button class="reset-btn" type="button" id="reset-lightcones">Сброс</button>
+            </div>
+
+            <p class="result-count" id="lightcone-result-count" aria-live="polite"></p>
+            <div id="lightcone-list" class="card-grid" aria-live="polite"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
